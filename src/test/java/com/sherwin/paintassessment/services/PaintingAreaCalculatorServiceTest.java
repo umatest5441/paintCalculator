@@ -27,6 +27,7 @@ public class PaintingAreaCalculatorServiceTest extends BasePaintingAreaCalculato
         double area = paintingAreaCalculatorService.calculatePaintableArea(room);
         Assert.assertTrue(Double.compare(595, area) == 0);
     }
+
     @Test
     public void calculatePaintableAreaFourWallsOneDoorTest() {
         Room room = getRoomWithOutWindowsAndTrims();

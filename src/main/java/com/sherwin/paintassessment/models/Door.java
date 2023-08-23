@@ -11,9 +11,9 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 public class Door {
 
-    @Size(min=1)
+    @Size(min = 1)
     private double length;
-    @Size(min=1)
+    @Size(min = 1)
     private double height;
 
 }

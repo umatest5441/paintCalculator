@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "e2fa7308-01a7-46b2-a64c-f512c76de784",
+		"name": "Paint Area Calculator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4616535"
+	},
+	"item": [
+		{
+			"name": "Paint Area Calculator Validation sample Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"walls\": [\r\n    {\r\n      \"length\": 10,\r\n      \"height\": 8\r\n    },\r\n    {\r\n      \"length\": 12,\r\n      \"height\": 8\r\n    }\r\n  ],\r\n  \"doors\": [\r\n    {\r\n      \"length\": 0,\r\n      \"height\": 7\r\n    }\r\n  ],\r\n  \"windows\": [\r\n    {\r\n      \"length\": 1,\r\n      \"height\": 3\r\n    }\r\n  ],\r\n  \"trims\": [\r\n    {\r\n      \"length\": 10,\r\n      \"height\": 1\r\n    },\r\n    {\r\n      \"length\": 12,\r\n      \"height\": 1\r\n    }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/paint/calculate/room",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"paint",
+						"calculate",
+						"room"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Paint Area Calculator",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"walls\": [\r\n    {\r\n      \"length\": 10,\r\n      \"height\": 8\r\n    },\r\n    {\r\n      \"length\": 12,\r\n      \"height\": 8\r\n    }\r\n  ],\r\n  \"doors\": [\r\n    {\r\n      \"length\": 10,\r\n      \"height\": 7\r\n    }\r\n  ],\r\n  \"windows\": [\r\n    {\r\n      \"length\": 1,\r\n      \"height\": 3\r\n    }\r\n  ],\r\n  \"trims\": [\r\n    {\r\n      \"length\": 10,\r\n      \"height\": 1\r\n    },\r\n    {\r\n      \"length\": 12,\r\n      \"height\": 1\r\n    }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/paint/calculate/room",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"paint",
+						"calculate",
+						"room"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

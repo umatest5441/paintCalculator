@@ -2,6 +2,7 @@ package com.sherwin.paintassessment.entities;
 
 import lombok.Data;
 
+// As persistence layer functonality optional commented Entity classes
 //@Entity
 @Data
 public class User {
