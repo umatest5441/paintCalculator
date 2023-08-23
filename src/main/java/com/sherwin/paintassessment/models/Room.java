@@ -18,6 +18,12 @@ public class Room {
     private List<Window> windows;
     private List<Trim> trims;
 
+    public List<Wall> getWalls() {
+        return this.walls == null ? new ArrayList<>() : walls;
+    }
+    public List<Door> getDoors() {
+        return this.doors == null ? new ArrayList<>() : doors;
+    }
     public List<Trim> getTrims() {
         return this.trims == null ? new ArrayList<>() : trims;
     }

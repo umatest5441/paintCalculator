@@ -22,6 +22,7 @@ public class PaintingAreaCalculatorController {
     private final RoomValidator roomValidator;
     private final PaintingAreaCalculatorService paintingAreaCalculatorService;
 
+
     @PostMapping("paint/calculate/room")
     public ResponseEntity<PaintingAreaResponse> calculatePaintingArea(@Valid @RequestBody Room room) {
         PaintingAreaResponse paintingAreaResponse = new PaintingAreaResponse();
@@ -32,7 +33,6 @@ public class PaintingAreaCalculatorController {
             paintingAreaResponse.setErrors(errors);
             return new ResponseEntity<>(paintingAreaResponse, HttpStatus.BAD_REQUEST);
         }
-
         double area = paintingAreaCalculatorService.calculatePaintableArea(room);
         paintingAreaResponse.setArea(area);
 
