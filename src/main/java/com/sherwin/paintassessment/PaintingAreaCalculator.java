@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @SpringBootApplication
-@OpenAPIDefinition(info = @Info(title = "Receipt Management"))
+@OpenAPIDefinition(info = @Info(title = "Paint Area Calculator"))
 public class PaintingAreaCalculator {
 
     public static void main(String[] args) {
