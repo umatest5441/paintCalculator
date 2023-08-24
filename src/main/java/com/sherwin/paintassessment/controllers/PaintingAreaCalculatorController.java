@@ -25,6 +25,7 @@ public class PaintingAreaCalculatorController {
 
     private final PaintingAreaCalculatorService paintingAreaCalculatorService;
 
+
     @Operation(summary = " Painting Area Calculator", description = "The API represents the amount of paint required for the Room")
     @PostMapping("paint/calculate/room")
     public ResponseEntity<PaintingAreaResponse> calculatePaintingArea(@RequestBody @Valid Room room) {
