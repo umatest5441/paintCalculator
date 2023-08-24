@@ -3,10 +3,12 @@ package com.sherwin.paintassessment.controllers;
 import com.sherwin.paintassessment.models.PaintingAreaResponse;
 import com.sherwin.paintassessment.models.Room;
 import com.sherwin.paintassessment.services.PaintingAreaCalculatorService;
-import com.sherwin.paintassessment.utils.RoomValidator;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,23 +18,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@Validated
 @RequiredArgsConstructor
+@Tag(name = "Painting Area Calculator", description = "Test123")
 public class PaintingAreaCalculatorController {
 
-    private final RoomValidator roomValidator;
     private final PaintingAreaCalculatorService paintingAreaCalculatorService;
 
-
+    @Operation(summary = " Painting Area Calculator", description = " Handle the receipt management")
     @PostMapping("paint/calculate/room")
-    public ResponseEntity<PaintingAreaResponse> calculatePaintingArea(@Valid @RequestBody Room room) {
+    public ResponseEntity<PaintingAreaResponse> calculatePaintingArea(@RequestBody @Valid Room room) {
         PaintingAreaResponse paintingAreaResponse = new PaintingAreaResponse();
 
         List<String> errors = new ArrayList<>();
-        roomValidator.validate(room, errors);
-        if (!errors.isEmpty()) {
-            paintingAreaResponse.setErrors(errors);
-            return new ResponseEntity<>(paintingAreaResponse, HttpStatus.BAD_REQUEST);
-        }
         double area = paintingAreaCalculatorService.calculatePaintableArea(room);
         paintingAreaResponse.setArea(area);
 

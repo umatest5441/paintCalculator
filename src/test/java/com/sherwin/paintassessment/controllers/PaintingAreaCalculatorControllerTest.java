@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sherwin.paintassessment.BasePaintingAreaCalculatorTest;
 import com.sherwin.paintassessment.models.Room;
 import com.sherwin.paintassessment.services.PaintingAreaCalculatorService;
-import com.sherwin.paintassessment.utils.RoomValidator;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +14,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -27,8 +27,6 @@ public class PaintingAreaCalculatorControllerTest extends BasePaintingAreaCalcul
     @InjectMocks
     private PaintingAreaCalculatorController paintingAreaCalculatorController;
 
-    @Mock
-    private RoomValidator roomValidator;
 
     @Mock
     PaintingAreaCalculatorService paintingAreaCalculatorService;
@@ -41,7 +39,6 @@ public class PaintingAreaCalculatorControllerTest extends BasePaintingAreaCalcul
     @Test
     public void calculatePaintingAreaTest() throws Exception {
         Room room = getRoom();
-        doNothing().when(roomValidator).validate(any(Room.class), anyList());
         when(paintingAreaCalculatorService.calculatePaintableArea(any(Room.class))).thenReturn(594.6);
         mockMvc.perform(post("/paint/calculate/room")
                         .contentType(MediaType.APPLICATION_JSON)

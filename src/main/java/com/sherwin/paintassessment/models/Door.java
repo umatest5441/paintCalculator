@@ -4,16 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.Size;
+import javax.validation.constraints.Min;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Door {
 
-    @Size(min = 1)
+    @Min(value = 0, message = "Door length must be positive")
     private double length;
-    @Size(min = 1)
+    @Min(value = 0, message = "Door height must be positive")
     private double height;
 
 }

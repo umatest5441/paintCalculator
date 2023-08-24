@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 
@@ -12,9 +13,9 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 public class Wall {
 
-    @Size(min = 1)
+    @Min(value = 0, message = "Wall length must be positive")
     private double length;
-    @Size(min = 1)
+    @Min(value = 0, message = "Wall height must be positive")
     private double height;
 
 
