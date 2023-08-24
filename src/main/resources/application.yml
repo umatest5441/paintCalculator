@@ -1,6 +1,6 @@
   spring:
     application:
-      name: paint -area -calculator
+      name: paint - area - calculator
 
 
   server:
