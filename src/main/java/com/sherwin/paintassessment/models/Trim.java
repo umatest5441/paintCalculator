@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 @Data
@@ -11,9 +12,9 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 public class Trim {
 
-    @Size(min = 1)
+    @Min(value = 0, message = "Trim length must be positive")
     private double length;
-    @Size(min = 1)
+    @Min(value = 0, message = "Trim height must be positive")
     private double height;
 
 }
