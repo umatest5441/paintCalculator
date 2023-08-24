@@ -20,12 +20,12 @@ import java.util.List;
 @RestController
 @Validated
 @RequiredArgsConstructor
-@Tag(name = "Painting Area Calculator", description = "Test123")
+@Tag(name = "Painting Area Calculator", description = "This controller represents the calculations of the Paint required for the Room")
 public class PaintingAreaCalculatorController {
 
     private final PaintingAreaCalculatorService paintingAreaCalculatorService;
 
-    @Operation(summary = " Painting Area Calculator", description = " Handle the receipt management")
+    @Operation(summary = " Painting Area Calculator", description = "The API represents the amount of paint required for the Room")
     @PostMapping("paint/calculate/room")
     public ResponseEntity<PaintingAreaResponse> calculatePaintingArea(@RequestBody @Valid Room room) {
         PaintingAreaResponse paintingAreaResponse = new PaintingAreaResponse();
